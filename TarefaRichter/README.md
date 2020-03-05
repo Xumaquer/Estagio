@@ -10,6 +10,7 @@ Esse código consiste de uma tarefa solicitada como seleção de estágio realiz
 * Iniciar Wifi;
 * Disponibilizar página web (http-server) com botão para iniciar e parar LED;
 * Disponibilizar na página web caixa de texto e botão para enviar texto para porta UART.
+
 E então as seguintes tarefas são as opcionais :
 * Adicionar na página web botão de Hibernar e mudar ESP32 para modo hibernação(deep sleep);
 * Usar GPIO para acordar MCU do modo hibernação (deep sleep);
