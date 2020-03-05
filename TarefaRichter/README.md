@@ -1,24 +1,25 @@
-# Simple HTTPD Server Example
+# Código com a tarefa solicitada
 
-The Example consists of HTTPD server demo with demostration of URI handling :
-    1. URI \hello for GET command returns "Hello World!" message
-    2. URI \echo for POST command echoes back the POSTed message
 
-* Open the project configuration menu (`idf.py menuconfig`) to configure Wi-Fi or Ethernet. See "Establishing Wi-Fi or Ethernet Connection" section in [examples/protocols/README.md](../../README.md) for more details.
+Esse código consiste de uma tarefa solicitada como seleção de estágio realizada na IDE ESP-IDF, completa inclusive com as tarefas opcionais, as tarefas são:
+* Iniciar;
+* Apresentar a string "Hello world!" Na porta UART (USB);
+* Aguardar entrada de usuário no UART para continuar o programa;
+* Fazer LED respirar (BreathingLED);
+* Fazer LED ligar/desligar usando o botão SW de um rotatory encoder;
+* Iniciar Wifi;
+* Disponibilizar página web (http-server) com botão para iniciar e parar LED;
+* Disponibilizar na página web caixa de texto e botão para enviar texto para porta UART.
+E então as seguintes tarefas são as opcionais :
+* Adicionar na página web botão de Hibernar e mudar ESP32 para modo hibernação(deep sleep);
+* Usar GPIO para acordar MCU do modo hibernação (deep sleep);
+* Adicionar histórico de comando recebidos da porta UART na página web;
+* Implementar Rotatory Encoder para definir frequência do LED.
 
-* In order to test the HTTPD server persistent sockets demo :
-    1. compile and burn the firmware `idf.py -p PORT flash`
-    2. run `idf.py -p PORT monitor` and note down the IP assigned to your ESP module. The default port is 80
-    3. test the example :
-        * run the test script : "python2 scripts/client.py \<IP\> \<port\> \<MSG\>"
-            * the provided test script first does a GET \hello and displays the response
-            * the script does a POST to \echo with the user input \<MSG\> and displays the response
-        * or use curl (asssuming IP is 192.168.43.130):
-            1. "curl 192.168.43.130:80/hello"  - tests the GET "\hello" handler
-            2. "curl -X POST --data-binary @anyfile 192.168.43.130:80/echo > tmpfile"
-                * "anyfile" is the file being sent as request body and "tmpfile" is where the body of the response is saved
-                * since the server echoes back the request body, the two files should be same, as can be confirmed using : "cmp anyfile tmpfile"
-            3. "curl -X PUT -d "0" 192.168.43.130:80/ctrl" - disable /hello and /echo handlers
-            4. "curl -X PUT -d "1" 192.168.43.130:80/ctrl" -  enable /hello and /echo handlers
+Os pinos utilizados estão definidos nos #Define, o rotatory encoder está sendo lido com GPIOs utilizando uma lógica simples sem interrupções , o histórico
+de mensagens adiciona ao final do texto HTML as ultimas 8 mensagens recebidas na UART que são armazenadas em variaveis, todas as tarefas de comunicação do 
+servidor HTTP, utilizam apenas HTTP GET, o servidor não está configurado para utilizar HTTP POST, foi utilizado as bibliotecas de lWip para o servidor,
+existem muitas bibliotecas no código, todas elas foram adicionadas ao longo de tentativas com diferentes métodos, algumas delas talvez não mais necessárias mas nenhuma delas foi removida.
+
 
 See the README.md file in the upper level 'examples' directory for more information about examples.
