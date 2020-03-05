@@ -22,5 +22,3 @@ de mensagens adiciona ao final do texto HTML as ultimas 8 mensagens recebidas na
 servidor HTTP, utilizam apenas HTTP GET, o servidor não está configurado para utilizar HTTP POST, foi utilizado as bibliotecas de lWip para o servidor,
 existem muitas bibliotecas no código, todas elas foram adicionadas ao longo de tentativas com diferentes métodos, algumas delas talvez não mais necessárias mas nenhuma delas foi removida.
 
-
-See the README.md file in the upper level 'examples' directory for more information about examples.
