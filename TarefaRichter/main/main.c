@@ -283,12 +283,13 @@ void wifi_init_sta(void)
 
 
 void app_main(void)
-{int Pull=0,SW=0,A=0,B=0,Tam_Contagem=50,EstadoAnterior,LEDPisca=0,Contagem=0;//As variaveis Pull e SW controlam o Switch do encoder, as variaveis A e B definem a tensão média no 
-//BreathingLED e o sentido da variação (crescente/decrescente) respectivamente, as variaveis Tam_Contagem,Contagem e EstadoAnterior, controlam o tamanho da contagem que o
-//ESP faz até alterar o estado do led (consequentemente mudando a frequencia), a cnotagem em si e a mudança de estado do Encoder , o que permite ler a sua direção
-//respectivamente, LedPisca é uma variavel que modifica-se sempre que a contagem chega ou ultrapasssa o tamanho da contagem (com proposito de piscar o led)
-//A variavel Frase indica os comandos digitados na UART a serem armazenados e exibidos depois no historico de comandos, a variavel UART indica quantas frases o 
-//site precisa exibir(indo no máximo até 8), a variavel Control é utilizada para uso correto da função For
+{int Pull=0,SW=0,A=0,B=0,Tam_Contagem=50,EstadoAnterior,LEDPisca=0,Contagem=0;//As variaveis Pull e SW controlam o Switch do encoder, 
+//as variaveis A e B definem a tensão média no BreathingLED e o sentido da variação (crescente/decrescente) respectivamente, as variaveis
+//Tam_Contagem,Contagem e EstadoAnterior, controlam o tamanho da contagem que o ESP faz até alterar o estado do led (consequentemente 
+//mudando a frequencia), a cnotagem em si e a mudança de estado do Encoder , o que permite ler a sua direção respectivamente, LedPisca
+// é uma variavel que modifica-se sempre que a contagem chega ou ultrapasssa o tamanho da contagem (com proposito de piscar o led)
+//A variavel Frase indica os comandos digitados na UART a serem armazenados e exibidos depois no historico de comandos, a variavel UART
+// indica quantas frases o site precisa exibir(indo no máximo até 8), a variavel Control é utilizada para uso correto da função For
 
 gpio_config_t io_conf; //define a variavel de configuração de gpio como io_config 
 	 io_conf.intr_type = GPIO_PIN_INTR_DISABLE; //desativa interrupção
